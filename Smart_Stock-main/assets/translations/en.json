@@ -1,0 +1,69 @@
+{
+  "app_name": "Smart Stock",
+  "warehouses": "Warehouses",
+  "profile": "Profile",
+  "settings": "Settings",
+  "main_warehouse": "Main Warehouse",
+  "branch_warehouse": "Branch Warehouse",
+  "backup_warehouse": "Backup Warehouse",
+  "total_products": "Total Products: {}",
+  "warehouse_dialog": {
+    "add_title": "Add New Warehouse",
+    "name": "Warehouse Name",
+    "block_count": "Block Count",
+    "select_icon": "Select Icon",
+    "cancel": "Cancel",
+    "add": "Add",
+    "success": "Warehouse added successfully",
+    "error": "Please enter warehouse name"
+  },
+  "profile_settings": {
+    "title": "Profile Information",
+    "notifications": "Notifications",
+    "security": "Security",
+    "help": "Help",
+    "logout": "Logout"
+  },
+  "settings_page": {
+    "personnel_management": "Personnel Management",
+    "add_personnel": "Add Personnel",
+    "personnel_list": "Personnel List",
+    "general_settings": "General Settings",
+    "theme": "Theme",
+    "language": "Language",
+    "notifications": "Notifications",
+    "app_settings": "App Settings",
+    "sync": "Data Synchronization",
+    "backup": "Backup",
+    "auto_update": "Auto Update",
+    "about": "About",
+    "app_version": "App Version",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_use": "Terms of Use"
+  },
+  "theme_dialog": {
+    "title": "Select Theme",
+    "blue_theme": "Blue Theme",
+    "dark_theme": "Dark Theme",
+    "close": "Close",
+    "applied": "{} applied"
+  },
+  "language_dialog": {
+    "title": "Select Language",
+    "close": "Close",
+    "selected": "{} language selected"
+  },
+  "personnel_dialog": {
+    "add_title": "Add Personnel",
+    "list_title": "Personnel List",
+    "full_name": "Full Name",
+    "email": "Email",
+    "password": "Password",
+    "cancel": "Cancel",
+    "add": "Add",
+    "close": "Close",
+    "success": "Personnel added successfully",
+    "deleted": "Personnel deleted",
+    "fill_all": "Please fill all fields"
+  }
+} 

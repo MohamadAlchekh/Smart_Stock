@@ -1,0 +1,69 @@
+{
+  "app_name": "Smart Stock",
+  "warehouses": "Depolar",
+  "profile": "Profil",
+  "settings": "Ayarlar",
+  "main_warehouse": "Ana Depo",
+  "branch_warehouse": "Şube Deposu",
+  "backup_warehouse": "Yedek Depo",
+  "total_products": "Toplam Ürün: {}",
+  "warehouse_dialog": {
+    "add_title": "Yeni Depo Ekle",
+    "name": "Depo Adı",
+    "block_count": "Blok Sayısı",
+    "select_icon": "Simge Seçin",
+    "cancel": "İptal",
+    "add": "Ekle",
+    "success": "Depo başarıyla eklendi",
+    "error": "Lütfen depo adını girin"
+  },
+  "profile_settings": {
+    "title": "Profil Bilgileri",
+    "notifications": "Bildirimler",
+    "security": "Güvenlik",
+    "help": "Yardım",
+    "logout": "Çıkış Yap"
+  },
+  "settings_page": {
+    "personnel_management": "Personel Yönetimi",
+    "add_personnel": "Personel Ekle",
+    "personnel_list": "Personel Listesi",
+    "general_settings": "Genel Ayarlar",
+    "theme": "Tema",
+    "language": "Dil Seçimi",
+    "notifications": "Bildirimler",
+    "app_settings": "Uygulama Ayarları",
+    "sync": "Veri Senkronizasyonu",
+    "backup": "Yedekleme",
+    "auto_update": "Otomatik Güncelleme",
+    "about": "Hakkında",
+    "app_version": "Uygulama Versiyonu",
+    "privacy_policy": "Gizlilik Politikası",
+    "terms_of_use": "Kullanım Koşulları"
+  },
+  "theme_dialog": {
+    "title": "Tema Seçimi",
+    "blue_theme": "Mavi Tema",
+    "dark_theme": "Koyu Tema",
+    "close": "Kapat",
+    "applied": "{} uygulandı"
+  },
+  "language_dialog": {
+    "title": "Dil Seçimi",
+    "close": "Kapat",
+    "selected": "{} dili seçildi"
+  },
+  "personnel_dialog": {
+    "add_title": "Personel Ekle",
+    "list_title": "Personel Listesi",
+    "full_name": "Ad Soyad",
+    "email": "E-posta",
+    "password": "Şifre",
+    "cancel": "İptal",
+    "add": "Ekle",
+    "close": "Kapat",
+    "success": "Personel başarıyla eklendi",
+    "deleted": "Personel silindi",
+    "fill_all": "Lütfen tüm alanları doldurun"
+  }
+} 

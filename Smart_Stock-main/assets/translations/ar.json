@@ -1,0 +1,69 @@
+{
+  "app_name": "سمارت ستوك",
+  "warehouses": "المستودعات",
+  "profile": "الملف الشخصي",
+  "settings": "الإعدادات",
+  "main_warehouse": "المستودع الرئيسي",
+  "branch_warehouse": "مستودع الفرع",
+  "backup_warehouse": "المستودع الاحتياطي",
+  "total_products": "إجمالي المنتجات: {}",
+  "warehouse_dialog": {
+    "add_title": "إضافة مستودع جديد",
+    "name": "اسم المستودع",
+    "block_count": "عدد الكتل",
+    "select_icon": "اختر الرمز",
+    "cancel": "إلغاء",
+    "add": "إضافة",
+    "success": "تمت إضافة المستودع بنجاح",
+    "error": "الرجاء إدخال اسم المستودع"
+  },
+  "profile_settings": {
+    "title": "معلومات الملف الشخصي",
+    "notifications": "الإشعارات",
+    "security": "الأمان",
+    "help": "المساعدة",
+    "logout": "تسجيل الخروج"
+  },
+  "settings_page": {
+    "personnel_management": "إدارة الموظفين",
+    "add_personnel": "إضافة موظف",
+    "personnel_list": "قائمة الموظفين",
+    "general_settings": "الإعدادات العامة",
+    "theme": "المظهر",
+    "language": "اللغة",
+    "notifications": "الإشعارات",
+    "app_settings": "إعدادات التطبيق",
+    "sync": "مزامنة البيانات",
+    "backup": "النسخ الاحتياطي",
+    "auto_update": "التحديث التلقائي",
+    "about": "حول",
+    "app_version": "إصدار التطبيق",
+    "privacy_policy": "سياسة الخصوصية",
+    "terms_of_use": "شروط الاستخدام"
+  },
+  "theme_dialog": {
+    "title": "اختيار المظهر",
+    "blue_theme": "المظهر الأزرق",
+    "dark_theme": "المظهر الداكن",
+    "close": "إغلاق",
+    "applied": "تم تطبيق {}"
+  },
+  "language_dialog": {
+    "title": "اختيار اللغة",
+    "close": "إغلاق",
+    "selected": "تم اختيار اللغة {}"
+  },
+  "personnel_dialog": {
+    "add_title": "إضافة موظف",
+    "list_title": "قائمة الموظفين",
+    "full_name": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "cancel": "إلغاء",
+    "add": "إضافة",
+    "close": "إغلاق",
+    "success": "تمت إضافة الموظف بنجاح",
+    "deleted": "تم حذف الموظف",
+    "fill_all": "يرجى ملء جميع الحقول"
+  }
+} 
