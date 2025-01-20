@@ -34,4 +34,4 @@ Bu projeyi yerel bilgisayarınızda çalıştırmak için aşağıdaki adımlar�
 
 1. *Projeyi Klonlayın:*
    ```bash
-   git clone https://github.com/kullaniciAdi/SmartStock.git
+   git clone https://github.com/MohamadAlchekh/Smart_Stock.git
