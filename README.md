@@ -34,6 +34,10 @@ https://github.com/user-attachments/assets/66323312-c1c5-471c-afc3-37ef4799b756
 - **Sahaf bayrakçı** [Mehmetsahaf](https://github.com/Mehmetsahaf) 
 
 ## Resimler
+![mobileapponboarding](https://github.com/user-attachments/assets/176b9206-2a3d-4ce3-9de2-4aa2c8664774)
+![kayıtekranı](https://github.com/user-attachments/assets/5303957b-34cf-4b02-bfb7-897c42837ade)
+
+
 
 [Resimler](https://github.com/MohamadAlchekh/Smart_Stock/tree/main/assets)
 
