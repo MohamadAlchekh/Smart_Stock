@@ -2,6 +2,8 @@
 
 *SmartStock*, şirketlerin depolarındaki envanteri yönetmelerine yardımcı olan, kullanıcı dostu ve güçlü bir stok takip uygulamasıdır. Yönetici ve kullanıcı rollerine sahip, depoların yönetildiği, ürünlerin eklenip çıkarılabildiği, tüm işlemlerin izlenebildiği ve istatistiklerin görselleştirildiği bir platform sunmaktadır.
 
+
+https://github.com/user-attachments/assets/66323312-c1c5-471c-afc3-37ef4799b756
 ## 🚀 Başlangıç
 
 Bu projeyi yerel bilgisayarınızda çalıştırmak için aşağıdaki adımları takip edebilirsiniz.
