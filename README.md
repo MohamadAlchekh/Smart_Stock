@@ -36,6 +36,10 @@ https://github.com/user-attachments/assets/66323312-c1c5-471c-afc3-37ef4799b756
 ## Resimler
 ![mobileapponboarding](https://github.com/user-attachments/assets/176b9206-2a3d-4ce3-9de2-4aa2c8664774)
 ![kayıtekranı](https://github.com/user-attachments/assets/5303957b-34cf-4b02-bfb7-897c42837ade)
+![anasayfa](https://github.com/user-attachments/assets/12589d83-ed5e-44eb-8a4d-816146d914e9)
+![istatistik](https://github.com/user-attachments/assets/d416674d-6ab7-4e13-bd7a-89de4d18a44e)
+![profil](https://github.com/user-attachments/assets/b8ecde90-3c98-4540-a9ec-1539e90a6594)
+![ayarlar](https://github.com/user-attachments/assets/ff6d91e6-e2f0-4b81-9819-d4f70d81f7d4)
 
 
 
