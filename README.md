@@ -4,9 +4,6 @@
 
 
 https://github.com/user-attachments/assets/66323312-c1c5-471c-afc3-37ef4799b756
-## 🚀 Başlangıç
-
-Bu projeyi yerel bilgisayarınızda çalıştırmak için aşağıdaki adımları takip edebilirsiniz.
 
 ## 📋 Proje Özellikleri
 
@@ -34,8 +31,13 @@ Bu projeyi yerel bilgisayarınızda çalıştırmak için aşağıdaki adımlar�
 ## Takım Ekibi
 
 - **Mohamad Alchekh** (ben) 
-- **Sahaf bayrakçı** [Mehmetsahaf]([https://github.com/ecrink](https://github.com/Mehmetsahaf)) 
+- **Sahaf bayrakçı** [Mehmetsahaf](https://github.com/Mehmetsahaf) 
 
+## Resimler
+
+[Resimler](https://github.com/MohamadAlchekh/Smart_Stock/tree/main/assets)
+
+  
 ### Projeyi Çalıştırmak
 
 1. *Projeyi Klonlayın:*
