@@ -32,7 +32,7 @@ class DatabaseHelper {
   Future<void> _onCreate(Database db, int version) async {
     // Create tables
     await db.execute('''
-      CREATE TABLE stocks (
+      CREATE TABLE STOK (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         symbol TEXT NOT NULL,
         name TEXT NOT NULL,
@@ -43,7 +43,7 @@ class DatabaseHelper {
     ''');
 
     await db.execute('''
-      CREATE TABLE personnel (
+      CREATE TABLE personel (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
         password TEXT NOT NULL,
@@ -52,7 +52,7 @@ class DatabaseHelper {
     ''');
 
     await db.execute('''
-      CREATE TABLE warehouses (
+      CREATE TABLE Depo (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
         icon TEXT NOT NULL,
@@ -61,69 +61,65 @@ class DatabaseHelper {
     ''');
 
     await db.execute('''
-      CREATE TABLE blocks (
+      CREATE TABLE blok (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         warehouse_id INTEGER NOT NULL,
         name TEXT NOT NULL,
         products INTEGER DEFAULT 0,
-        FOREIGN KEY (warehouse_id) REFERENCES warehouses (id) ON DELETE CASCADE
+        FOREIGN KEY (warehouse_id) REFERENCES Depo (id) ON DELETE CASCADE
       )
     ''');
 
-    // Add default personnel account
-    await db.insert('personnel',
+    await db.insert('personel',
         {'name': 'test', 'password': 'test123', 'role': 'personel'});
   }
 
-  // Personnel CRUD operations
-  Future<int> insertPersonnel(Map<String, dynamic> row) async {
+  Future<int> insertpersonel(Map<String, dynamic> row) async {
     Database db = await database;
-    return await db.insert('personnel', row);
+    return await db.insert('personel', row);
   }
 
-  Future<List<Map<String, dynamic>>> getAllPersonnel() async {
+  Future<List<Map<String, dynamic>>> getAllpersonel() async {
     Database db = await database;
-    return await db.query('personnel');
+    return await db.query('personel');
   }
 
-  Future<Map<String, dynamic>?> getPersonnel(int id) async {
+  Future<Map<String, dynamic>?> getpersonel(int id) async {
     Database db = await database;
-    var results = await db.query('personnel', where: 'id = ?', whereArgs: [id]);
+    var results = await db.query('personel', where: 'id = ?', whereArgs: [id]);
     return results.isNotEmpty ? results.first : null;
   }
 
-  Future<Map<String, dynamic>?> getPersonnelByNameAndPassword(
+  Future<Map<String, dynamic>?> getpersonelByNameAndPassword(
       String name, String password) async {
     Database db = await database;
-    var results = await db.query('personnel',
+    var results = await db.query('personel',
         where: 'name = ? AND password = ?', whereArgs: [name, password]);
     return results.isNotEmpty ? results.first : null;
   }
 
-  Future<int> updatePersonnel(Map<String, dynamic> row) async {
+  Future<int> updatepersonel(Map<String, dynamic> row) async {
     Database db = await database;
     int id = row['id'];
-    return await db.update('personnel', row, where: 'id = ?', whereArgs: [id]);
+    return await db.update('personel', row, where: 'id = ?', whereArgs: [id]);
   }
 
-  Future<int> deletePersonnel(int id) async {
+  Future<int> deletepersonel(int id) async {
     Database db = await database;
-    return await db.delete('personnel', where: 'id = ?', whereArgs: [id]);
+    return await db.delete('personel', where: 'id = ?', whereArgs: [id]);
   }
 
-  // Warehouse CRUD operations
   Future<int> insertWarehouse(
       Map<String, dynamic> row, List<String> blockNames) async {
     Database db = await database;
-    int warehouseId = await db.insert('warehouses', {
+    int warehouseId = await db.insert('Depo', {
       'name': row['name'],
       'icon': row['icon'],
       'total_products': 0,
     });
 
-    // Insert blocks for this warehouse
     for (String blockName in blockNames) {
-      await db.insert('blocks', {
+      await db.insert('blok', {
         'warehouse_id': warehouseId,
         'name': blockName,
         'products': 0,
@@ -135,31 +131,28 @@ class DatabaseHelper {
 
   Future<List<Map<String, dynamic>>> getAllWarehouses() async {
     Database db = await database;
-    List<Map<String, dynamic>> warehouses = await db.query('warehouses');
+    List<Map<String, dynamic>> Depo = await db.query('Depo');
 
-    // For each warehouse, get its blocks
-    for (var warehouse in warehouses) {
-      List<Map<String, dynamic>> blocks = await db.query(
-        'blocks',
+    for (var warehouse in Depo) {
+      List<Map<String, dynamic>> blok = await db.query(
+        'blok',
         where: 'warehouse_id = ?',
         whereArgs: [warehouse['id']],
       );
-      warehouse['blocks'] = blocks;
+      warehouse['blok'] = blok;
     }
 
-    return warehouses;
+    return Depo;
   }
 
   Future<Map<String, dynamic>?> getWarehouse(int id) async {
     Database db = await database;
-    var results =
-        await db.query('warehouses', where: 'id = ?', whereArgs: [id]);
+    var results = await db.query('Depo', where: 'id = ?', whereArgs: [id]);
     if (results.isEmpty) return null;
 
     var warehouse = results.first;
-    // Get blocks for this warehouse
-    warehouse['blocks'] = await db.query(
-      'blocks',
+    warehouse['blok'] = await db.query(
+      'blok',
       where: 'warehouse_id = ?',
       whereArgs: [id],
     );
@@ -170,28 +163,26 @@ class DatabaseHelper {
   Future<int> updateWarehouse(Map<String, dynamic> row) async {
     Database db = await database;
     int id = row['id'];
-    return await db.update('warehouses', row, where: 'id = ?', whereArgs: [id]);
+    return await db.update('Depo', row, where: 'id = ?', whereArgs: [id]);
   }
 
   Future<int> updateBlock(Map<String, dynamic> row) async {
     Database db = await database;
     int id = row['id'];
 
-    // Update block
-    await db.update('blocks', row, where: 'id = ?', whereArgs: [id]);
+    await db.update('blok', row, where: 'id = ?', whereArgs: [id]);
 
-    // Update total products in warehouse
-    var blocks = await db.query(
-      'blocks',
+    var blok = await db.query(
+      'blok',
       where: 'warehouse_id = ?',
       whereArgs: [row['warehouse_id']],
     );
 
     int totalProducts =
-        blocks.fold(0, (sum, block) => sum + (block['products'] as int));
+        blok.fold(0, (sum, block) => sum + (block['products'] as int));
 
     return await db.update(
-      'warehouses',
+      'Depo',
       {'total_products': totalProducts},
       where: 'id = ?',
       whereArgs: [row['warehouse_id']],
@@ -200,35 +191,33 @@ class DatabaseHelper {
 
   Future<int> deleteWarehouse(int id) async {
     Database db = await database;
-    // Blocks will be automatically deleted due to ON DELETE CASCADE
-    return await db.delete('warehouses', where: 'id = ?', whereArgs: [id]);
+    return await db.delete('Depo', where: 'id = ?', whereArgs: [id]);
   }
 
-  // Stock CRUD operations
   Future<int> insertStock(Map<String, dynamic> row) async {
     Database db = await database;
-    return await db.insert('stocks', row);
+    return await db.insert('STOK', row);
   }
 
-  Future<List<Map<String, dynamic>>> getAllStocks() async {
+  Future<List<Map<String, dynamic>>> getAllSTOK() async {
     Database db = await database;
-    return await db.query('stocks');
+    return await db.query('STOK');
   }
 
   Future<Map<String, dynamic>?> getStock(int id) async {
     Database db = await database;
-    var results = await db.query('stocks', where: 'id = ?', whereArgs: [id]);
+    var results = await db.query('STOK', where: 'id = ?', whereArgs: [id]);
     return results.isNotEmpty ? results.first : null;
   }
 
   Future<int> updateStock(Map<String, dynamic> row) async {
     Database db = await database;
     int id = row['id'];
-    return await db.update('stocks', row, where: 'id = ?', whereArgs: [id]);
+    return await db.update('STOK', row, where: 'id = ?', whereArgs: [id]);
   }
 
   Future<int> deleteStock(int id) async {
     Database db = await database;
-    return await db.delete('stocks', where: 'id = ?', whereArgs: [id]);
+    return await db.delete('STOK', where: 'id = ?', whereArgs: [id]);
   }
 }

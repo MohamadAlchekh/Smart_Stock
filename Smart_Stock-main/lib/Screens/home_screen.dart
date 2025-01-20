@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/theme_provider.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'warehouse_detail_screen.dart';
+import 'depo_detay_screen.dart';
 import 'login_screen.dart';
-import '../providers/personnel_provider.dart';
+import '../providers/personel_provider.dart';
 import 'package:flutter/services.dart';
-import '../providers/statistics_provider.dart';
+import '../providers/statik_provider.dart';
 import 'package:intl/intl.dart';
-import '../providers/warehouse_provider.dart';
+import '../providers/depo_provider.dart';
 
 class HomeScreen extends StatefulWidget {
   final bool isAdmin;
@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
         items: [
           BottomNavigationBarItem(
             icon: const Icon(Icons.warehouse),
-            label: 'warehouses'.tr(),
+            label: 'Depo'.tr(),
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.analytics),
@@ -328,7 +328,7 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     final isRTL = context.locale.languageCode == 'ar';
-    final personnelProvider = Provider.of<PersonnelProvider>(context);
+    final personelProvider = Provider.of<PersonelProvider>(context);
 
     return Container(
       decoration: const BoxDecoration(
@@ -349,17 +349,17 @@ class _SettingsPageState extends State<SettingsPage> {
               children: [
                 _buildSettingsSection(
                   context,
-                  'settings_page.personnel_management'.tr(),
+                  'settings_page.personel_management'.tr(),
                   [
                     _buildSettingsTile(
                       context,
-                      'settings_page.add_personnel'.tr(),
+                      'settings_page.add_personel'.tr(),
                       Icons.person_add,
                       onTap: () => _showAddPersonelDialog(context),
                     ),
                     _buildSettingsTile(
                       context,
-                      'settings_page.personnel_list'.tr(),
+                      'settings_page.personel_list'.tr(),
                       Icons.people,
                       onTap: () => _showPersonelList(context),
                     ),
@@ -494,8 +494,8 @@ class _SettingsPageState extends State<SettingsPage> {
     final TextEditingController roleController = TextEditingController();
     final isRTL = context.locale.languageCode == 'ar';
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    final personnelProvider =
-        Provider.of<PersonnelProvider>(context, listen: false);
+    final personelProvider =
+        Provider.of<PersonelProvider>(context, listen: false);
 
     showDialog(
       context: context,
@@ -583,7 +583,7 @@ class _SettingsPageState extends State<SettingsPage> {
               final role = roleController.text.trim();
 
               if (name.isNotEmpty && password.isNotEmpty && role.isNotEmpty) {
-                personnelProvider.addPersonnel(
+                personelProvider.addpersonel(
                   name: name,
                   password: password,
                   role: role,
@@ -621,8 +621,8 @@ class _SettingsPageState extends State<SettingsPage> {
   // Personel Listesi Dialog'u
   void _showPersonelList(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    final personnelProvider =
-        Provider.of<PersonnelProvider>(context, listen: false);
+    final personelProvider =
+        Provider.of<PersonelProvider>(context, listen: false);
 
     showDialog(
       context: context,
@@ -638,9 +638,9 @@ class _SettingsPageState extends State<SettingsPage> {
           width: double.maxFinite,
           child: ListView.builder(
             shrinkWrap: true,
-            itemCount: personnelProvider.personnel.length,
+            itemCount: personelProvider.personel.length,
             itemBuilder: (context, index) {
-              final person = personnelProvider.personnel[index];
+              final person = personelProvider.personel[index];
               return ListTile(
                 leading: const Icon(Icons.person),
                 title: Text(person['name'] ?? ''),
@@ -662,7 +662,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           TextButton(
                             onPressed: () {
                               Navigator.pop(context);
-                              personnelProvider.removePersonnel(index);
+                              personelProvider.removepersonel(index);
                               Navigator.pop(context);
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -854,7 +854,7 @@ class _WarehousesPageState extends State<WarehousesPage> {
   @override
   void initState() {
     super.initState();
-    // Load warehouses from database
+    // Load Depo from database
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Provider.of<WarehouseProvider>(context, listen: false).loadWarehouses();
     });
@@ -877,7 +877,7 @@ class _WarehousesPageState extends State<WarehousesPage> {
   Widget build(BuildContext context) {
     final isRTL = context.locale.languageCode == 'ar';
     final warehouseProvider = Provider.of<WarehouseProvider>(context);
-    final warehouses = warehouseProvider.warehouses;
+    final Depo = warehouseProvider.Depo;
 
     return Scaffold(
       body: Container(
@@ -893,9 +893,9 @@ class _WarehousesPageState extends State<WarehousesPage> {
         ),
         child: ListView.builder(
           padding: const EdgeInsets.all(16),
-          itemCount: warehouses.length,
+          itemCount: Depo.length,
           itemBuilder: (context, index) {
-            final warehouse = warehouses[index];
+            final warehouse = Depo[index];
             return _buildWarehouseCard(
               context,
               warehouse['name'] as String,
@@ -903,7 +903,7 @@ class _WarehousesPageState extends State<WarehousesPage> {
                   .tr(args: [warehouse['total_products'].toString()]),
               IconData(int.parse(warehouse['icon']),
                   fontFamily: 'MaterialIcons'),
-              List<Map<String, dynamic>>.from(warehouse['blocks'] as List),
+              List<Map<String, dynamic>>.from(warehouse['blok'] as List),
               false,
               () {},
               warehouse['id'] as int,
@@ -926,7 +926,7 @@ class _WarehousesPageState extends State<WarehousesPage> {
     String title,
     String subtitle,
     IconData icon,
-    List<Map<String, dynamic>> blocks,
+    List<Map<String, dynamic>> blok,
     bool isExpanded,
     VoidCallback onTap,
     int warehouseId,
@@ -946,12 +946,12 @@ class _WarehousesPageState extends State<WarehousesPage> {
             MaterialPageRoute(
               builder: (context) => WarehouseDetailScreen(
                 title: title,
-                products: blocks
+                products: blok
                     .fold<int>(
                         0, (sum, block) => sum + (block['products'] as int))
                     .toString(),
                 icon: icon,
-                blocks: blocks,
+                blok: blok,
                 isAdmin: widget.isAdmin,
                 userName: widget.userName,
                 role: widget.role ?? '',

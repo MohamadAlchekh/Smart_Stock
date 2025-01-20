@@ -1,6 +1,6 @@
 {
   "app_name": "سمارت ستوك",
-  "warehouses": "المستودعات",
+  "Depo": "المستودعات",
   "profile": "الملف الشخصي",
   "settings": "الإعدادات",
   "main_warehouse": "المستودع الرئيسي",
@@ -25,9 +25,9 @@
     "logout": "تسجيل الخروج"
   },
   "settings_page": {
-    "personnel_management": "إدارة الموظفين",
-    "add_personnel": "إضافة موظف",
-    "personnel_list": "قائمة الموظفين",
+    "personel_management": "إدارة الموظفين",
+    "add_personel": "إضافة موظف",
+    "personel_list": "قائمة الموظفين",
     "general_settings": "الإعدادات العامة",
     "theme": "المظهر",
     "language": "اللغة",
@@ -53,7 +53,7 @@
     "close": "إغلاق",
     "selected": "تم اختيار اللغة {}"
   },
-  "personnel_dialog": {
+  "personel_dialog": {
     "add_title": "إضافة موظف",
     "list_title": "قائمة الموظفين",
     "full_name": "الاسم الكامل",

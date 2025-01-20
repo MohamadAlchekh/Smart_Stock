@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import '../providers/statistics_provider.dart';
-import 'block_detail_screen.dart';
+import '../providers/statik_provider.dart';
+import 'blok_detay_screen.dart';
 
 class WarehouseDetailScreen extends StatefulWidget {
   final String title;
   final String products;
   final IconData icon;
-  final List<Map<String, dynamic>> blocks;
+  final List<Map<String, dynamic>> blok;
   final Function(List<Map<String, dynamic>>) onBlocksUpdated;
   final bool isAdmin;
   final String userName;
@@ -20,7 +20,7 @@ class WarehouseDetailScreen extends StatefulWidget {
     required this.title,
     required this.products,
     required this.icon,
-    required this.blocks,
+    required this.blok,
     required this.onBlocksUpdated,
     required this.isAdmin,
     required this.userName,
@@ -37,7 +37,7 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
   @override
   void initState() {
     super.initState();
-    _blocks = List.from(widget.blocks.map((block) {
+    _blocks = List.from(widget.blok.map((block) {
       return {
         ...block,
         'products_list': block['products_list'] ?? [],
@@ -51,7 +51,7 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
         0,
         (sum, product) => sum + int.parse(product['quantity'] ?? '0'),
       );
-      
+
       return {
         ...block,
         'products': totalProducts.toString(),
@@ -69,10 +69,12 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
       appBar: AppBar(
         title: Text(
           widget.title,
-          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
-          icon: Icon(isRTL ? Icons.arrow_forward : Icons.arrow_back, color: Colors.white),
+          icon: Icon(isRTL ? Icons.arrow_forward : Icons.arrow_back,
+              color: Colors.white),
           onPressed: () => Navigator.pop(context),
         ),
         flexibleSpace: Container(
@@ -111,7 +113,8 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
     );
   }
 
-  Widget _buildBlockCard(BuildContext context, Map<String, dynamic> block, int blockIndex) {
+  Widget _buildBlockCard(
+      BuildContext context, Map<String, dynamic> block, int blockIndex) {
     return Card(
       margin: const EdgeInsets.only(bottom: 16),
       elevation: 4,
@@ -264,7 +267,8 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
                   color: isDarkMode ? Colors.white70 : const Color(0xFF1A237E),
                 ),
               ),
-              keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              keyboardType:
+                  const TextInputType.numberWithOptions(decimal: true),
               inputFormatters: [
                 FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}')),
               ],
@@ -288,7 +292,10 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
               final quantity = quantityController.text.trim();
               final weight = weightController.text.trim();
 
-              if (name.isNotEmpty && price.isNotEmpty && quantity.isNotEmpty && weight.isNotEmpty) {
+              if (name.isNotEmpty &&
+                  price.isNotEmpty &&
+                  quantity.isNotEmpty &&
+                  weight.isNotEmpty) {
                 setState(() {
                   if (_blocks[blockIndex]['products_list'] == null) {
                     _blocks[blockIndex]['products_list'] = [];
@@ -302,7 +309,8 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
                 });
 
                 // İstatistik kaydı ekle
-                final statistics = Provider.of<StatisticsProvider>(context, listen: false);
+                final statistics =
+                    Provider.of<StatisticsProvider>(context, listen: false);
                 statistics.addLog(
                   'Kullanıcı',
                   widget.title,
@@ -344,7 +352,7 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
 
   void _deleteProduct(int blockIndex, int productIndex) {
     final product = _blocks[blockIndex]['products_list'][productIndex];
-    
+
     // İstatistik kaydı ekle
     final statistics = Provider.of<StatisticsProvider>(context, listen: false);
     statistics.addLog(
@@ -361,4 +369,4 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
     });
     _updateBlocks();
   }
-} 
+}

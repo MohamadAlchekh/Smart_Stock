@@ -1,6 +1,6 @@
 {
   "app_name": "Smart Stock",
-  "warehouses": "Warehouses",
+  "Depo": "Depo",
   "profile": "Profile",
   "settings": "Settings",
   "main_warehouse": "Main Warehouse",
@@ -25,9 +25,9 @@
     "logout": "Logout"
   },
   "settings_page": {
-    "personnel_management": "Personnel Management",
-    "add_personnel": "Add Personnel",
-    "personnel_list": "Personnel List",
+    "personel_management": "personel Management",
+    "add_personel": "Add personel",
+    "personel_list": "personel List",
     "general_settings": "General Settings",
     "theme": "Theme",
     "language": "Language",
@@ -53,17 +53,17 @@
     "close": "Close",
     "selected": "{} language selected"
   },
-  "personnel_dialog": {
-    "add_title": "Add Personnel",
-    "list_title": "Personnel List",
+  "personel_dialog": {
+    "add_title": "Add personel",
+    "list_title": "personel List",
     "full_name": "Full Name",
     "email": "Email",
     "password": "Password",
     "cancel": "Cancel",
     "add": "Add",
     "close": "Close",
-    "success": "Personnel added successfully",
-    "deleted": "Personnel deleted",
+    "success": "personel added successfully",
+    "deleted": "personel deleted",
     "fill_all": "Please fill all fields"
   }
 } 

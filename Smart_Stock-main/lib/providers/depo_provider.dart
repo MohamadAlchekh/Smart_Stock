@@ -5,9 +5,9 @@ class WarehouseProvider with ChangeNotifier {
   final DatabaseHelper _db = DatabaseHelper();
   List<Map<String, dynamic>> _warehouses = [];
 
-  List<Map<String, dynamic>> get warehouses => _warehouses;
+  List<Map<String, dynamic>> get Depo => _warehouses;
 
-  // Load all warehouses from database
+  // Load all Depo from database
   Future<void> loadWarehouses() async {
     _warehouses = await _db.getAllWarehouses();
     notifyListeners();

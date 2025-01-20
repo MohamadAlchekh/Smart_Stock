@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'providers/theme_provider.dart';
-import 'providers/personnel_provider.dart';
-import 'providers/statistics_provider.dart';
-import 'providers/warehouse_provider.dart';
+import 'providers/personel_provider.dart';
+import 'providers/statik_provider.dart';
+import 'providers/depo_provider.dart';
 import 'screens/onboarding_screen.dart';
 
 void main() async {
@@ -30,7 +30,7 @@ void main() async {
       child: MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => ThemeProvider()),
-          ChangeNotifierProvider(create: (_) => PersonnelProvider()),
+          ChangeNotifierProvider(create: (_) => PersonelProvider()),
           ChangeNotifierProvider(create: (_) => StatisticsProvider()),
           ChangeNotifierProvider(create: (_) => WarehouseProvider()),
         ],

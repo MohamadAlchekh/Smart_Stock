@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../providers/personnel_provider.dart';
+import '../providers/personel_provider.dart';
 import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -67,18 +67,18 @@ class _LoginScreenState extends State<LoginScreen> {
     }
     // Normal kullanıcı girişi kontrolü
     else {
-      final personnelProvider =
-          Provider.of<PersonnelProvider>(context, listen: false);
-      final personnel = await personnelProvider.login(username, password);
+      final personelProvider =
+          Provider.of<PersonelProvider>(context, listen: false);
+      final personel = await personelProvider.login(username, password);
 
-      if (personnel != null) {
+      if (personel != null) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: (context) => HomeScreen(
-              isAdmin: personnel['role'] == 'admin',
-              userName: personnel['name'],
-              role: personnel['role'],
+              isAdmin: personel['role'] == 'admin',
+              userName: personel['name'],
+              role: personel['role'],
             ),
           ),
         );

@@ -1,6 +1,6 @@
 {
   "app_name": "Smart Stock",
-  "warehouses": "Depolar",
+  "Depo": "Depolar",
   "profile": "Profil",
   "settings": "Ayarlar",
   "main_warehouse": "Ana Depo",
@@ -25,9 +25,9 @@
     "logout": "Çıkış Yap"
   },
   "settings_page": {
-    "personnel_management": "Personel Yönetimi",
-    "add_personnel": "Personel Ekle",
-    "personnel_list": "Personel Listesi",
+    "personel_management": "Personel Yönetimi",
+    "add_personel": "Personel Ekle",
+    "personel_list": "Personel Listesi",
     "general_settings": "Genel Ayarlar",
     "theme": "Tema",
     "language": "Dil Seçimi",
@@ -53,7 +53,7 @@
     "close": "Kapat",
     "selected": "{} dili seçildi"
   },
-  "personnel_dialog": {
+  "personel_dialog": {
     "add_title": "Personel Ekle",
     "list_title": "Personel Listesi",
     "full_name": "Ad Soyad",

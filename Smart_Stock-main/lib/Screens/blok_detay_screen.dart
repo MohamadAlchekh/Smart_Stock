@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import '../providers/statistics_provider.dart';
+import '../providers/statik_provider.dart';
 
 class BlockDetailScreen extends StatefulWidget {
   final String blockName;

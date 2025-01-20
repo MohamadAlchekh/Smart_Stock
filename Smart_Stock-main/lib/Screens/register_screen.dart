@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/personnel_provider.dart';
+import '../providers/personel_provider.dart';
 import 'login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -57,9 +57,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
 
     // Personel kaydı
-    final personnelProvider =
-        Provider.of<PersonnelProvider>(context, listen: false);
-    await personnelProvider.addPersonnel(
+    final personelProvider =
+        Provider.of<PersonelProvider>(context, listen: false);
+    await personelProvider.addpersonel(
       name: name,
       password: password,
       role: 'personel', // Default role for self-registration is 'personel'
