@@ -31,7 +31,11 @@ Bu projeyi yerel bilgisayarınızda çalıştırmak için aşağıdaki adımlar�
 ### 6. *Ayarlar Sayfası*
    - Yönetici, personel yönetimi, kullanıcı izinleri ve uygulama ayarlarını yapılandırabilir.
 
-     
+## Takım Ekibi
+
+- **Mohamad Alchekh** (ben) 
+- **Sahaf bayrakçı** [Mehmetsahaf]([https://github.com/ecrink](https://github.com/Mehmetsahaf)) 
+
 ### Projeyi Çalıştırmak
 
 1. *Projeyi Klonlayın:*
